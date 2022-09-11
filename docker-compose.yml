@@ -10,6 +10,11 @@ services:
       - "5432"
     env_file:
       - ./general.env
+    healthcheck:
+      test: [ "CMD", "pg_isready" ]
+      interval: 1m
+      timeout: 10s
+      retries: 3
 
   adminer:
     image: adminer
