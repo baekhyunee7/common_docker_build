@@ -3,13 +3,14 @@ version: "3"
 services:
   db:
     image: postgres
+    container_name: "${POSTGRES_CONTAINER_NAME}"
     restart: always
     ports:
-      - 5432:5432
+      - "${POSTGRES_HOST_MAP_PORT}:5432"
     expose:
       - "5432"
     env_file:
-      - ./general.env
+      - .env
     healthcheck:
       test: [ "CMD", "pg_isready" ]
       interval: 1m
@@ -22,3 +23,5 @@ services:
     ports:
       - 8080:8080
 
+# connect docker postgresql from host
+# psql -h localhost -p <host_map_port> -U <db_user> -W

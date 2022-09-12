@@ -1,0 +1,15 @@
+{
+  "postgresql":{
+    "need": true,
+    "container_name": "postgresql1",
+    "host_port": 5433,
+    "user": "test",
+    "password": "12345",
+    "db": "test"
+  },
+  "redis":{
+    "need": true,
+    "container_name": "redis1",
+    "host_port": 6380
+  }
+}
