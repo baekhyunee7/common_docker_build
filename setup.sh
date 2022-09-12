@@ -18,7 +18,7 @@ then
   [ -n "$POSTGRES_PASSWORD" ] && echo "POSTGRES_PASSWORD:$POSTGRES_PASSWORD" >> $POSTGRES_ENV_FILE
   POSTGRES_DB=$(cat config.json | jq -c '.postgresql.db' | sed  's/\"//g')
   [ -n "$POSTGRES_DB" ] && echo "POSTGRES_DB:$POSTGRES_DB" >> $POSTGRES_ENV_FILE
-#  docker-compose -f ./postgresql/postgresql.yml up -d
+  docker-compose -f ./postgresql/postgresql.yml up -d
 fi
 
 if [ "$(cat config.json | jq -c '.redis.need' )" = "true" ]
@@ -30,5 +30,5 @@ then
   REDIS_CONTAINER_NAME=$(cat config.json | jq -c '.redis.container_name' | sed  's/\"//g')
   [ -n "$REDIS_CONTAINER_NAME" ] && echo "REDIS_CONTAINER_NAME:$REDIS_CONTAINER_NAME" >> $REDIS_ENV_FILE
   echo "REDIS_HOST_MAP_PORT:$REDIS_HOST_MAP_PORT" >> $REDIS_ENV_FILE
-#  docker-compose -f ./redis/redis.yml up -d
+  docker-compose -f ./redis/redis.yml up -d
 fi
