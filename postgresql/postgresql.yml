@@ -21,7 +21,7 @@ services:
     image: adminer
     restart: always
     ports:
-      - 8080:8080
+      - "${ADMINER_HOST_MAP_PORT}:8080"
 
 # connect docker postgresql from host
 # psql -h localhost -p <host_map_port> -U <db_user> -W

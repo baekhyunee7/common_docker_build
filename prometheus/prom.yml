@@ -1,0 +1,12 @@
+version: "3"
+services:
+  prometheus:
+    image: prom/prometheus
+    container_name: "${PROMETHEUS_CONTAINER_NAME}"
+    restart: always
+    ports:
+      - "${PROMETHEUS_HOST_MAP_PORT}:9090"
+    expose:
+      - "9090"
+    volumes:
+      - /home/fcx/fcx/common_docker_build/prometheus/config:/etc/prometheus

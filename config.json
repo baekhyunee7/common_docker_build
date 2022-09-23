@@ -5,11 +5,18 @@
     "host_port": 5433,
     "user": "test",
     "password": "12345",
-    "db": "test"
+    "db": "test",
+    "adminer_port": 8080
   },
   "redis":{
     "need": true,
     "container_name": "redis1",
     "host_port": 6380
+  },
+  "prometheus":{
+    "need": true,
+    "host_port": 9090,
+    "container_name": "prometheus1",
+    "config_dir": "./prometheus/config"
   }
 }

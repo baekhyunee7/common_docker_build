@@ -1,2 +1,4 @@
 /postgresql/.env
 /redis/.env
+/prometheus/.env
+/prometheus/config
